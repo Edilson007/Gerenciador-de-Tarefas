@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.10.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GerenciamentoTarefa.AutoMapper\GerenciamentoTarefas.AutoMapper.csproj" />
+    <ProjectReference Include="..\GerenciamentoTarefas.Interfaces\GerenciamentoTarefas.Interfaces.csproj" />
+    <ProjectReference Include="..\GerenciamentoTarefas.Repository\GerenciamentoTarefas.Repository.csproj" />
+    <ProjectReference Include="..\GerenciamentoTarefas.Service\GerenciamentoTarefas.Service.csproj" />
+    <ProjectReference Include="..\GerenciamentoTarefas.Validation\GerenciamentoTarefas.Validation.csproj" />
+  </ItemGroup>
+
+</Project>
