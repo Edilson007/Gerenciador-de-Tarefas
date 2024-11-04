@@ -16,6 +16,14 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ITarefaService, TarefasService>();
 builder.Services.AddScoped<ITarefaRepository, TarefaRepository>();
 builder.Services.RegisterMapping();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder => builder.AllowAnyOrigin()
+                          .AllowAnyHeader()
+                          .AllowAnyMethod());
+});
+
 
 builder.Services.AddDbContext<GerenciadorTarefasEFContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -28,12 +36,14 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    //app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors("AllowAllOrigins");
 
 app.MapControllers();
 
