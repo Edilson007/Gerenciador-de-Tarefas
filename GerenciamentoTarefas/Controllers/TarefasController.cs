@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GerenciamentoTarefas.WebApi.Controllers
 {
-    [Route("api/tarefas")]
+    [Route("api/[controller]")]
     [ApiController]
     public class TarefasController : ControllerBase
     {
@@ -35,7 +35,7 @@ namespace GerenciamentoTarefas.WebApi.Controllers
            
         }
 
-        [HttpGet()]
+        [HttpGet]
         public IActionResult GetAll()
         {
             try
